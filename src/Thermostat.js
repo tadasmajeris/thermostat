@@ -8,3 +8,11 @@ function Thermostat(){
 Thermostat.prototype.temperature = function () {
   return this._temperature;
 };
+
+Thermostat.prototype.increaseTemperature = function () {
+  this._temperature++;
+};
+
+Thermostat.prototype.decreaseTemperature = function () {
+  this._temperature--;
+};
