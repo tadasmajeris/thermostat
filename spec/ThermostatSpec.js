@@ -35,5 +35,12 @@ describe('Thermostat', function() {
       };
       expect(thermostat.temperature()).toEqual(thermostat._DEFAULT_TEMPERATURE-5);
     });
+    it('should raise an error, temperature cannot go below MINIMUM TEMP', function(){
+      var x = thermostat._DEFAULT_TEMPERATURE - thermostat._MINIMUM_TEMPERATURE;
+      for(var i=1; i<=x ; i++){
+        thermostat.decreaseTemperature();
+      };
+      expect(function(){thermostat.decreaseTemperature(); }).toThrowError('Minimum Temperature reached');
+    });
   });
 });
