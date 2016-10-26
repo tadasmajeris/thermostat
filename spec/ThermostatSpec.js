@@ -51,5 +51,25 @@ describe("Thermostat", function(){
     expect(thermostat.isPowerSaverOn()).toBe(true);
   });
 
+  it('can be reset to the default temperature',function() {
+    thermostat.increaseTemperature(5);
+    thermostat.resetTemperature();
+    expect(thermostat.getCurrentTemperature()).toEqual(20);
+  });
+
+  it('is low-usage when below 18 degrees',function() {
+    thermostat.decreaseTemperature(5);
+    expect(thermostat.getEnergyUsage()).toEqual('low-usage');
+  });
+
+  it('is high-usage when above 25 degrees',function() {
+    thermostat.switchOff();
+    thermostat.increaseTemperature(6);
+    expect(thermostat.getEnergyUsage()).toEqual('high-usage');
+  });
+
+  it('is medium-usage when between 18 and 25 degrees',function() {
+    expect(thermostat.getEnergyUsage()).toEqual('medium-usage');
+  });
 
 });
