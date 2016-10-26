@@ -23,8 +23,14 @@ describe('Thermostat', function() {
       };
       expect(thermostat.temperature()).toEqual(thermostat._DEFAULT_TEMP+4);
     });
+
     describe('powerSaving turned on', function() {
       it('should start in powerSaving mode by default', function() {
+        expect(thermostat.powerSaving()).toBe(true);
+      });
+      it('can switch on powerSaving', function() {
+        thermostat.switchOffPowerSaving();
+        thermostat.switchOnPowerSaving();
         expect(thermostat.powerSaving()).toBe(true);
       });
       it('should not increase temeprature past power saving max', function(){
@@ -35,6 +41,7 @@ describe('Thermostat', function() {
         expect(thermostat.temperature()).toEqual(thermostat._POWER_SAVING_MAX);
       });
     });
+
     describe('powerSaving turned off', function() {
       it('should start in powerSaving mode by default', function() {
         thermostat.switchOffPowerSaving();
