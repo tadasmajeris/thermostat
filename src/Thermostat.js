@@ -35,6 +35,17 @@ Thermostat.prototype.switchOffPowerSaving = function () {
 
 Thermostat.prototype.switchOnPowerSaving = function () {
   this._power_saving_mode = true;
+  if(this.temperature() > this._POWER_SAVING_MAX) {
+    this._temperature = this._POWER_SAVING_MAX;
+  };
+};
+
+Thermostat.prototype.togglePowerSaving = function () {
+  if (this.powerSaving()) {
+    this.switchOffPowerSaving();
+  } else {
+    this.switchOnPowerSaving();
+  }
 };
 
 Thermostat.prototype.resetTemperature = function () {
@@ -43,10 +54,10 @@ Thermostat.prototype.resetTemperature = function () {
 
 Thermostat.prototype.screenColour = function () {
   if(this.temperature() < 18) {
-    return "green";
+    return "lightgreen";
   } else if(this.temperature() < 25) {
-    return "yellow";
+    return "gold";
   } else {
-    return "red"
+    return "salmon"
   };
 };

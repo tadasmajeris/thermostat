@@ -5,36 +5,15 @@
     <title>Thermostat</title>
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
     <script type="text/javascript" src="src/Thermostat.js"></script>
+    <script src="src/elements.js"></script>
   </head>
+
   <body style="text-align:center;">
-
-    <script>
-    $(document).ready(function() {
-      var thermostat = new Thermostat();
-      $("#temperature_display").val(thermostat.temperature());
-
-      $( "#up_button" ).click(function(){
-        thermostat.increaseTemperature();
-        $("#temperature_display").val(thermostat.temperature());
-      });
-
-      $( "#down_button" ).click(function(){
-        thermostat.decreaseTemperature();
-        $("#temperature_display").val(thermostat.temperature());
-      });
-
-      $( "#reset_button" ).click(function(){
-        thermostat.resetTemperature();
-        $("#temperature_display").val(thermostat.temperature());
-      });
-    });
-    </script>
-
     <textarea id="temperature_display" rows="1" cols="2" style="resize:none; padding: 20px; font-size: 2em;" disabled></textarea><br />
     <p id="powerSaving" style="margin: 0px;">PowerSaving is on</p>
     <button type="button" id="down_button">-</button>
     <button type="button" id="up_button">+</button><br />
     <button type="button" id="reset_button">RESET</button><br />
-    <button type="button" id="psm_toggle_button">PowerSaving ON/OFF</button>
+    <button type="button" id="psm_toggle_button">Turn PowerSaving off</button>
   </body>
 </html>

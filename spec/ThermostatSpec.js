@@ -90,15 +90,15 @@ describe('Thermostat', function() {
   describe('screenColour', function() {
     it('should return "green" when temperature is less than 18', function() {
       spyOn(thermostat, 'temperature').and.returnValue(17);
-      expect(thermostat.screenColour()).toBe('green');
+      expect(thermostat.screenColour()).toBe('lightgreen');
     });
     it('should return "yellow" when temperature is between 18 and 24', function() {
       spyOn(thermostat, 'temperature').and.returnValue(24);
-      expect(thermostat.screenColour()).toBe('yellow');
+      expect(thermostat.screenColour()).toBe('gold');
     });
     it('should return "red" when temperature is over 24', function() {
       spyOn(thermostat, 'temperature').and.returnValue(25);
-      expect(thermostat.screenColour()).toBe('red');
+      expect(thermostat.screenColour()).toBe('salmon');
     });
   });
 });
