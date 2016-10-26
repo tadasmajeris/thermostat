@@ -25,8 +25,9 @@ describe("Thermostat", function(){
     expect(thermostat.MINIMUM_TEMPERATURE).toEqual(10);
   });
 
-  it("won't allow you to decrease the temperature below 10 degrees", function() {
-    expect(function(){ thermostat.decreaseTemperature(50); }).toThrowError("Minimum temperature is 10 degrees. Are you crazy?");
+  it('stops decreasing temperature beyond 10 degrees', function() {
+    thermostat.decreaseTemperature(11);
+    expect(thermostat.getCurrentTemperature()).toEqual(10);
   });
 
   it('power saver mode is on by default', function() {

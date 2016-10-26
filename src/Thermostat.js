@@ -2,21 +2,39 @@ function Thermostat() {
   this.temperature = 20;
   this.MINIMUM_TEMPERATURE = 10;
   this.powersaver = true;
+  this.POWER_SAVER_MAX_TEMPERATURE = 25;
+  this.POWER_SAVER_OFF_MAX_TEMPERATURE = 32;
 }
 
 Thermostat.prototype.getCurrentTemperature = function() {
   return this.temperature;
 };
 
+Thermostat.prototype.getMaxTemperature = function() {
+  if(this.isPowerSaverOn() === true) {
+    return this.POWER_SAVER_MAX_TEMPERATURE;
+  }
+  else {
+    return this.POWER_SAVER_OFF_MAX_TEMPERATURE;
+  }
+};
+
 Thermostat.prototype.increaseTemperature = function(amount) {
-  this.temperature += amount;
+  if(amount > (this.getMaxTemperature() - this.temperature)) {
+    this.temperature = this.getMaxTemperature();
+  }
+  else {
+    this.temperature += amount;
+  }
 };
 
 Thermostat.prototype.decreaseTemperature = function(amount) {
   if(amount > (this.temperature - this.MINIMUM_TEMPERATURE)) {
-    throw new Error('Minimum temperature is 10 degrees. Are you crazy?');
+    this.temperature = this.MINIMUM_TEMPERATURE;
   }
-  this.temperature -= amount;
+  else {
+    this.temperature -= amount;
+  }
 };
 
 Thermostat.prototype.isPowerSaverOn = function() {
