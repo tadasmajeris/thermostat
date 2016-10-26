@@ -3,10 +3,34 @@
   <head>
     <meta charset="utf-8">
     <title>Thermostat</title>
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
     <script type="text/javascript" src="src/Thermostat.js"></script>
   </head>
   <body style="text-align:center;">
-    <textarea id="temperature_display" rows="1" cols="2" style="resize:none; padding: 20px; font-size: 2em;" disabled>18</textarea><br />
+
+    <script>
+    $(document).ready(function() {
+      var thermostat = new Thermostat();
+      $("#temperature_display").val(thermostat.temperature());
+
+      $( "#up_button" ).click(function(){
+        thermostat.increaseTemperature();
+        $("#temperature_display").val(thermostat.temperature());
+      });
+
+      $( "#down_button" ).click(function(){
+        thermostat.decreaseTemperature();
+        $("#temperature_display").val(thermostat.temperature());
+      });
+
+      $( "#reset_button" ).click(function(){
+        thermostat.resetTemperature();
+        $("#temperature_display").val(thermostat.temperature());
+      });
+    });
+    </script>
+
+    <textarea id="temperature_display" rows="1" cols="2" style="resize:none; padding: 20px; font-size: 2em;" disabled></textarea><br />
     <p id="powerSaving" style="margin: 0px;">PowerSaving is on</p>
     <button type="button" id="down_button">-</button>
     <button type="button" id="up_button">+</button><br />
