@@ -9,17 +9,17 @@ function Thermostat(){
   this._temperature = this._DEFAULT_TEMP;
 };
 
-Thermostat.prototype.temperature = function() {
+Thermostat.prototype.temperature = function () {
   return this._temperature;
 };
 
-Thermostat.prototype.increaseTemperature = function() {
+Thermostat.prototype.increaseTemperature = function () {
   if((this.powerSaving() && this.temperature() < this._POWER_SAVING_MAX) || (!this.powerSaving() && this.temperature() < this._MAX )) {
     this._temperature++
   }
 };
 
-Thermostat.prototype.decreaseTemperature = function() {
+Thermostat.prototype.decreaseTemperature = function () {
   if(this.temperature() > this._MIN_TEMP) {
     this._temperature--;
   }
@@ -35,4 +35,18 @@ Thermostat.prototype.switchOffPowerSaving = function () {
 
 Thermostat.prototype.switchOnPowerSaving = function () {
   this._power_saving_mode = true;
+};
+
+Thermostat.prototype.resetTemperature = function () {
+  this._temperature = this._DEFAULT_TEMP
+};
+
+Thermostat.prototype.screenColour = function () {
+  if(this.temperature() < 18) {
+    return "green";
+  } else if(this.temperature() < 25) {
+    return "yellow";
+  } else {
+    return "red"
+  };
 };
