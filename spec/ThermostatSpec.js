@@ -29,4 +29,26 @@ describe("Thermostat", function(){
     expect(function(){ thermostat.decreaseTemperature(50); }).toThrowError("Minimum temperature is 10 degrees. Are you crazy?");
   });
 
+  it('power saver mode is on by default', function() {
+    expect(thermostat.isPowerSaverOn()).toBe(true);
+  });
+
+  it('shuold have maximum temperature of 25 when power saver mode is on', function() {
+    thermostat.increaseTemperature(6);
+    expect(thermostat.getCurrentTemperature()).toEqual(25);
+  });
+
+  it('should turn power saver mode off', function() {
+    thermostat.switchOff();
+    expect(thermostat.isPowerSaverOn()).toBe(false);
+  });
+
+  it('should turn power saver mode on', function() {
+    thermostat.switchOff();
+    expect(thermostat.isPowerSaverOn()).toBe(false);
+    thermostat.switchOn();
+    expect(thermostat.isPowerSaverOn()).toBe(true);
+  });
+
+
 });

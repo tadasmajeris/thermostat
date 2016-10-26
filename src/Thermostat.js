@@ -1,8 +1,8 @@
 function Thermostat() {
   this.temperature = 20;
+  this.MINIMUM_TEMPERATURE = 10;
+  this.powersaver = true;
 }
-
-Thermostat.prototype.MINIMUM_TEMPERATURE = 10;
 
 Thermostat.prototype.getCurrentTemperature = function() {
   return this.temperature;
@@ -17,5 +17,16 @@ Thermostat.prototype.decreaseTemperature = function(amount) {
     throw new Error('Minimum temperature is 10 degrees. Are you crazy?');
   }
   this.temperature -= amount;
+};
 
+Thermostat.prototype.isPowerSaverOn = function() {
+  return this.powersaver === true;
+};
+
+Thermostat.prototype.switchOff = function() {
+  this.powersaver = false;
+};
+
+Thermostat.prototype.switchOn = function() {
+  this.powersaver = true;
 };
