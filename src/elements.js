@@ -5,6 +5,11 @@ $(document).ready(function() {
     $("#temperature_display").css("background-color", thermostat.screenColour());
   };
 
+  $.get('http://api.openweathermap.org/data/2.5/weather?q=London&mode=json&units=metric&appid=0afaa8d09217753695c1ffd42e3b429b', function(data) {
+    londonTemperature = Math.floor(data.main.temp);
+    $('#temperatureOutside').html("Temperature outside: " + londonTemperature + '°C');
+  })
+
   update();
 
   $( "#up_button" ).click(function(){
