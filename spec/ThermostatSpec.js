@@ -79,4 +79,26 @@ describe('Thermostat', function() {
       expect(thermostat.temperature()).toEqual(thermostat._MIN_TEMP);
     });
   });
+
+  describe('resetTemperature', function() {
+    it('should reset temperature to default', function() {
+      thermostat.resetTemperature();
+      expect(thermostat.temperature()).toEqual(thermostat._DEFAULT_TEMP);
+    });
+  });
+
+  describe('screenColour', function() {
+    it('should return "green" when temperature is less than 18', function() {
+      spyOn(thermostat, 'temperature').and.returnValue(17);
+      expect(thermostat.screenColour()).toBe('green');
+    });
+    it('should return "yellow" when temperature is between 18 and 24', function() {
+      spyOn(thermostat, 'temperature').and.returnValue(24);
+      expect(thermostat.screenColour()).toBe('yellow');
+    });
+    it('should return "red" when temperature is over 24', function() {
+      spyOn(thermostat, 'temperature').and.returnValue(25);
+      expect(thermostat.screenColour()).toBe('red');
+    });
+  });
 });
