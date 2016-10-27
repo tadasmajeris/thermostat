@@ -4,6 +4,7 @@
 <link rel='stylesheet' href='css/interface.css'>
   <head>
     <title>Thermostat</title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
   </head>
   <body>
     <section>
@@ -11,17 +12,17 @@
       <p>
         <button id="temperature-up">+</button>
         <button id="temperature-down">-</button>
-        <button id="temperature-reset">reset</button>
-        <h3>power saving mode is <span id="power-saving-status">on</span></h3>
-        <button id="powersaving-on">PSM on</button>
-        <button id="powersaving-off">PSM off</button>
+        <button id="temperature-reset">RESET</button>
+        <h3>Power Saving Mode: <span id="power-saving-status">ON</span></h3>
+        <button id="powersaving-on">ON</button>
+        <button id="powersaving-off">OFF</button>
       </p>
     </section>
     <section>
-      <h1>Current temperature: <span id="current-temperature"></span></h1>
+      <h2>Current temperature: <span id="current-temperature"></span></h2>
       <form id='select-city'>
         <input id='current-city' type='text' placeholder="Enter a city"></input>
-        <input type='submit'></input>
+        <input id='submit' type='submit'></input>
       </form>
     </section>
     <script src="src/thermostat.js"></script>

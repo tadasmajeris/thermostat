@@ -19,13 +19,13 @@ $(document).ready(function() {
 
   $('#powersaving-on').click(function() {
     thermostat.turnPowerSavingModeOn();
-    $('#power-saving-status').text('on')
+    $('#power-saving-status').text('ON')
     updateTemperature();
   })
 
   $('#powersaving-off').click(function() {
     thermostat.turnPowerSavingModeOff();
-    $('#power-saving-status').text('off')
+    $('#power-saving-status').text('OFF')
     updateTemperature();
   })
 
