@@ -9,27 +9,33 @@
     <title>Thermostat Project</title>
   </head>
     <body>
-      <section>
-        <h1 class=".medium-usage" id='temperature'></h1>
-        <p>
-          <button id="temperature-up">+</button>
-          <button id="temperature-down">-</button>
-          <button id="temperature-reset">reset</button>
-          power saving mode is <span id="power-saving-status">on</span>
-          <button id="powersaving-toggle">PSM off</button>
-        </p>
-      </section>
-      <section>
-        <select id="city">
-          <option>Manchester</option>
-          <option>London</option>
-          <option>Tokyo</option>
-          <option>Kursenai</option>
-          <option>Szczecin</option>
-          <option>Rio de Janeiro</option>
-        </select>
-        <h3><span id="city_name"></span> temperature:
-          <span id="outside-temperature"></span>˚C</h3>
-      </section>
+      <div id='pip_boy'>
+        <img src='pipboy.png'/>
+        <h3>YEAR: 2067</h3>
+      </div>
+      <div id='main'>
+        <section id='section1'>
+          <h1 class=".medium-usage" id='temperature'></h1>
+          <p>
+            <button id="temperature-down">-</button>
+            <button id="temperature-reset">reset</button>
+            <button id="temperature-up">+</button><br />
+            <br />
+            Power saving: <span id="power-saving-status">on</span><br />
+            <button id="powersaving-toggle">PSM off</button>
+          </p>
+        </section>
+        <section id='section2'>
+          <select id="city">
+            <option>Manchester</option>
+            <option>London</option>
+            <option>Tokyo</option>
+            <option>Kursenai</option>
+            <option>Szczecin</option>
+            <option>Rio de Janeiro</option>
+          </select>
+          <h3><span id="city_name"></span><span id="outside-temperature"></span></h3>
+        </section>
+      </div>
     </body>
 </html>

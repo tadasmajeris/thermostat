@@ -1,9 +1,92 @@
+@import url('https://fonts.googleapis.com/css?family=Lato');
+
+html, body{
+  height: 100%;
+  margin: 0;
+  font-family: 'Lato', sans-serif;
+  color: #378153;
+}
+
+body {
+  background-color: black;
+  text-align: center;
+}
+
+#temperature {
+  font-size: 300%;
+  margin: 0px;
+  margin-bottom: 7px;
+}
+
+#section1 {
+  position: relative;
+}
+#section1 p {
+  margin: 0px;
+}
+#section2 {
+  margin-top: 20px;
+}
+#section2 h3 {
+  margin: 0px;
+  margin-top: 5px;
+  font-size: 80%;
+}
+
+#pip_boy {
+  top: 10%;
+  width: 80%;
+  height: 80%;
+  margin: 0 auto;
+  left: 10%;
+  right: 10%;
+  z-index: -1;
+  position: absolute;
+}
+
+#main {
+  position: relative;
+  top: 14%;
+  z-index: 1;
+  width: 50%;
+  height: 50%;
+  margin: 0 auto;
+  font-size: 90%;
+}
+
+button {
+  background-color: Transparent;
+  color: inherit;
+  border: 1px solid #378153;
+  cursor: pointer;
+}
+button:hover {
+  color: LightGreen;
+  border: 1px solid LightGreen;
+}
+select {
+  background-color: Transparent;
+  color: inherit;
+  border: 1px solid #378153;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  cursor: pointer;
+  text-align: center;
+  padding: 2px;
+  padding-right: 4px;
+  outline: none;
+}
+select:active, select:hover {
+  box-shadow: inset 20px 20px #030;
+}
+
 .low-usage {
-  background-color: LightGreen;
+  color: LightGreen;
 }
 .medium-usage {
-  background-color: yellow;
+  color: Gold;
 }
 .high-usage {
-  background-color: LightCoral;
+  color: FireBrick;
 }
