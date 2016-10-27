@@ -5,6 +5,7 @@ $(document).ready(function() {
   function updateTemperature() {
     $('#temperature').text(thermostat.getCurrentTemperature());
     $('#temperature').attr('class', thermostat.getEnergyUsage())
+
   }
   updateTemperature();
   updateWeather($('#city').val());
@@ -43,4 +44,4 @@ $(document).ready(function() {
   $('#city').change(function() {
     updateWeather($('#city').val());
   });
-})
+});
