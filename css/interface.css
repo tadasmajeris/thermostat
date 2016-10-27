@@ -1,3 +1,45 @@
+body {
+  background-color: #302E2E;
+}
+
+
+#temperature {
+  display: block;
+  height: 60px;
+  width: 60px;
+  line-height: 60px;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  border-style: solid;
+  border-width: 20px;
+  background-color: #302E2E;
+  border-color: red;
+  text-align: center;
+  font-size: 3em;
+  color: white;
+  padding: 20px;
+}
+
+button {
+  border-radius: 8px;
+  border-style: none;
+  font-size: 50px;
+  color: white;
+  padding: 10px 30px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+
+#temperature-up {
+  background-color: red;
+}
+
+#temperature-down {
+  background-color: green;
+}
+
+
 .low-usage {
   color: green;
 }
