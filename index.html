@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="UTF-8">
     <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
     <script src="src/Thermostat.js"></script>
     <script src='interface.js'></script>
@@ -17,6 +18,18 @@
           power saving mode is <span id="power-saving-status">on</span>
           <button id="powersaving-toggle">PSM off</button>
         </p>
+      </section>
+      <section>
+        <select id="city">
+          <option>Manchester</option>
+          <option>London</option>
+          <option>Tokyo</option>
+          <option>Kursenai</option>
+          <option>Szczecin</option>
+          <option>Rio de Janeiro</option>
+        </select>
+        <h3><span id="city_name"></span> temperature:
+          <span id="outside-temperature"></span>˚C</h3>
       </section>
     </body>
 </html>
