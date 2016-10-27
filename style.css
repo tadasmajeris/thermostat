@@ -1,0 +1,9 @@
+.low-usage {
+  background-color: LightGreen;
+}
+.medium-usage {
+  background-color: yellow;
+}
+.high-usage {
+  background-color: LightCoral;
+}

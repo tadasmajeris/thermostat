@@ -1,21 +1,20 @@
 $(document).ready(function() {
 
   var thermostat = new Thermostat();
-  updateTemperature();
 
   function updateTemperature() {
-    $('#temperature').text(thermostat.temperature);
+    $('#temperature').text(thermostat.getCurrentTemperature());
+    $('#temperature').attr('class', thermostat.getEnergyUsage())
   }
+  updateTemperature();
 
-  $('#temperature').text(thermostat.temperature);
 
-  $('#temperature-up').on('click', function() {
+  $('#temperature-up').click(function() {
     thermostat.increaseTemperature(1);
     updateTemperature();
   });
 
-
-  $('#temperature-down').on('click', function() {
+  $('#temperature-down').click(function() {
     thermostat.decreaseTemperature(1);
     updateTemperature();
   });
@@ -25,23 +24,13 @@ $(document).ready(function() {
     updateTemperature();
   });
 
-  $('#powersaving-on').click(function() {
-    thermostat.switchOn()
-    $('#power-saving-status').text('on')
+  $('#powersaving-toggle').click(function() {
+    thermostat.togglePSM();
+    var status = thermostat.isPowerSaverOn() ? 'on' : 'off';
+    var buttonStatus = status === 'on' ? 'off' : 'on';
+    $('#power-saving-status').text(status);
+    $('#powersaving-toggle').html('PSM ' + buttonStatus);
     updateTemperature();
   });
-
-  $('#powersaving-off').click(function() {
-    thermostat.switchOff();
-    $('#power-saving-status').text('off')
-    updateTemperature();
-  });
-
-
-
-
-
-
-
 
 })

@@ -40,7 +40,7 @@ Thermostat.prototype.decreaseTemperature = function(amount) {
 };
 
 Thermostat.prototype.isPowerSaverOn = function() {
-  return this.powersaver === true;
+  return this.powersaver;
 };
 
 Thermostat.prototype.switchOff = function() {
@@ -48,7 +48,18 @@ Thermostat.prototype.switchOff = function() {
 };
 
 Thermostat.prototype.switchOn = function() {
+  if(this.getCurrentTemperature() > this.POWER_SAVER_MAX_TEMPERATURE) {
+    this.temperature = this.POWER_SAVER_MAX_TEMPERATURE;
+  }
   this.powersaver = true;
+};
+
+Thermostat.prototype.togglePSM = function () {
+  if(this.isPowerSaverOn()) {
+    this.switchOff();
+  } else {
+    this.switchOn();
+  }
 };
 
 Thermostat.prototype.resetTemperature = function() {
