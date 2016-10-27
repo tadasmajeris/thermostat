@@ -5,9 +5,9 @@ $(document).ready(function() {
   function updateTemperature() {
     $('#temperature').text(thermostat.getCurrentTemperature());
     $('#temperature').attr('class', thermostat.getEnergyUsage())
-
   }
-  updateTemperature();
+
+  // updateTemperature();
   updateWeather($('#city').val());
 
   $('#temperature-up').click(function() {
@@ -43,5 +43,20 @@ $(document).ready(function() {
 
   $('#city').change(function() {
     updateWeather($('#city').val());
+  });
+
+  $('#save').click(function() {
+    var city_name = $('#city').val();
+    var status = thermostat.isPowerSaverOn();
+    var temperature = thermostat.getCurrentTemperature();
+    $.ajax({
+       type: 'post',
+       url: '/save',
+       data: {
+         'city': city_name,
+         'powersaving': status,
+         'temperature': temperature
+       }
+   });
   });
 });

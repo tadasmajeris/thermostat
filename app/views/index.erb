@@ -15,13 +15,13 @@
       </div>
       <div id='main'>
         <section id='section1'>
-          <h1 class=".medium-usage" id='temperature'></h1>
+          <h1 class="<%= @usage %>" id='temperature'><%= @settings.temperature %></h1>
           <p>
             <button id="temperature-down">-</button>
             <button id="temperature-reset">reset</button>
             <button id="temperature-up">+</button><br />
-            <br />
-            Power saving: <span id="power-saving-status">on</span><br />
+            <br/>
+            Power saving: <span id="power-saving-status"><%= @settings.powersaving ? "on" : "off" %></span><br />
             <button id="powersaving-toggle">PSM off</button>
           </p>
         </section>
@@ -36,6 +36,7 @@
           </select>
           <h3><span id="city_name"></span><span id="outside-temperature"></span></h3>
         </section>
+            <button id="save">Save the settings</button>
       </div>
     </body>
 </html>

@@ -8,6 +8,10 @@ function Thermostat() {
   this.LOW_ENERGY_USAGE = 18;
 }
 
+Thermostat.prototype.setTemperature = function(temp) {
+  this.temperature = temp
+};
+
 Thermostat.prototype.getCurrentTemperature = function() {
   return this.temperature;
 };
