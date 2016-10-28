@@ -15,6 +15,7 @@ class MyApp < Sinatra::Base
   end
 
   post '/settings' do
+    Settings.all.destroy
     Settings.create(city: params[:city],
                     temperature: params[:temperature],
                     power_saving_mode: params[:power_saving_mode])

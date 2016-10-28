@@ -4,6 +4,11 @@ $(document).ready(function() {
   $.getJSON('http://localhost:4567/settings', function(data){
     thermostat = new Thermostat(data.temperature);
     updateTemperature();
+    displayWeather(data.city);
+    if(data.power_saving_mode === false){
+      thermostat.turnPowerSavingModeOff();
+      $('#power-saving-status').text('OFF');
+    }
   });
 
   $('#temperature-up').on('click', function() { // event listener
@@ -23,13 +28,13 @@ $(document).ready(function() {
 
   $('#powersaving-on').click(function() {
     thermostat.turnPowerSavingModeOn();
-    $('#power-saving-status').text('ON')
+    $('#power-saving-status').text('ON');
     updateTemperature();
   })
 
   $('#powersaving-off').click(function() {
     thermostat.turnPowerSavingModeOff();
-    $('#power-saving-status').text('OFF')
+    $('#power-saving-status').text('OFF');
     updateTemperature();
   })
 
@@ -51,6 +56,9 @@ $(document).ready(function() {
         'temperature': temp
       }
     })
+    $('#settings-saved').fadeTo(100, 1, function() {
+      $('#settings-saved').fadeOut(2000);
+    });
   });
 
   function displayWeather(city){
@@ -58,7 +66,7 @@ $(document).ready(function() {
     var token = '&appid=c49855571159f819f404955a8b1a8080';
     var units = '&units=metric';
     $.get(url + token + units, function(data){
-      $('#current-temperature').text(data.main.temp);
+      $('#current-temperature').text(Math.round(data.main.temp) + '˚C in ' + capitalizeFirstLetter(city));
     })
   }
 
@@ -66,4 +74,9 @@ $(document).ready(function() {
     $('#temperature').text(thermostat.temperature);
     $('#temperature').attr('class', thermostat.energyUsage());
   }
+
+  function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  }
+
 })
