@@ -6,9 +6,13 @@ require_relative 'models/settings'
 
 class Thermostat < Sinatra::Base
 
-
   get '/' do
+    erb :'index'
+  end
+
+  get '/settings' do
     @settings = Settings.last
+    p @settings
     if @settings.temperature < 18
       @usage = 'low-usage'
     elsif @settings.temperature <= 25
@@ -16,7 +20,6 @@ class Thermostat < Sinatra::Base
     else
       @usage = 'high-usage'
     end
-    p @usage
     erb :'index'
   end
 
