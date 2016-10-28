@@ -1,8 +1,8 @@
 'use strict';
 
-function Thermostat() {
+function Thermostat(temp) {
   this.DEFAULT_TEMPERATURE = 20;
-  this.temperature = this.DEFAULT_TEMPERATURE;
+  this.temperature = typeof temp === 'undefined' ? this.DEFAULT_TEMPERATURE : temp;
   this.MINIMUM_TEMPERATURE = 10;
   this.powerSavingModeOn = true;
   this.MAX_LIMIT_PSM_ON = 25;

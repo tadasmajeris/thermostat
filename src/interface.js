@@ -1,6 +1,10 @@
 $(document).ready(function() {
-  var thermostat = new Thermostat();
-  updateTemperature();
+  var thermostat;
+
+  $.getJSON('http://localhost:4567/settings', function(data){
+    thermostat = new Thermostat(data.temperature);
+    updateTemperature();
+  });
 
   $('#temperature-up').on('click', function() { // event listener
     thermostat.increaseTemperature(); // update model
@@ -29,8 +33,7 @@ $(document).ready(function() {
     updateTemperature();
   })
 
-  $('#select-city').submit(function(event) {
-    event.preventDefault();
+  $('#submit-city').click(function(event) {
     var city = $('#current-city').val();
     displayWeather(city);
   })
@@ -49,7 +52,6 @@ $(document).ready(function() {
       }
     })
   });
-
 
   function displayWeather(city){
     var url = 'http://api.openweathermap.org/data/2.5/weather?q=' + city;
