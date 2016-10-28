@@ -35,6 +35,22 @@ $(document).ready(function() {
     displayWeather(city);
   })
 
+  $('#save-settings').click(function() {
+    var temp = thermostat.getCurrentTemperature();
+    var status = thermostat.isPowerSavingModeOn();
+    var city = $('#current-city').val();
+    $.ajax({
+      type: 'post',
+      url: 'http://localhost:4567/settings',
+      data: {
+        'city': city,
+        'power_saving_mode': status,
+        'temperature': temp
+      }
+    })
+  });
+
+
   function displayWeather(city){
     var url = 'http://api.openweathermap.org/data/2.5/weather?q=' + city;
     var token = '&appid=c49855571159f819f404955a8b1a8080';

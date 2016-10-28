@@ -148,6 +148,16 @@ input[type=text] {
   background-color: #302E2E;
 }
 
+#save-settings {
+  position: absolute;
+  top: 350px;
+  left: 480px;
+  text-align: center;
+  display: block;
+  font-size: 15px;
+  background-color: #302E2E;
+}
+
 
 .low-usage {
   color: green;
